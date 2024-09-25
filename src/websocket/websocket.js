@@ -41,7 +41,7 @@ server.on("connection", async (client, req) => {
         const targetClient = allClientsOnLine.get(userId);
         
         if (!targetClient) {
-            console.log(`User ${userId} not found`);
+            console.log(`User ${userId} is not online`);
             return;
         };
         targetClient.client.send(`from: ${foundUser.username} ---> ${message}`);
