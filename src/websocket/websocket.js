@@ -54,7 +54,7 @@ server.on("connection", async (client, req) => {
         });
         newMessage.save();
 
-        targetClient.client.send(`from: ${foundUser.username} ---> ${message}`);
+        targetClient.client.send(`${foundUser.username}: ${message}`);
     });
 
     client.on("close", () => {
