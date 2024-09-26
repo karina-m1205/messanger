@@ -182,7 +182,8 @@
                     };
 
                     socket.onmessage = function (event) {
-                        displayMessage(`Server: ${event.data}`, true);
+                        // displayMessage(`Server: ${event.data}`, true);
+                        displayMessage(`${event.data}`, true);
                     };
 
                     socket.onerror = function (error) {
