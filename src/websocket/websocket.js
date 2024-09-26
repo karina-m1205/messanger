@@ -1,6 +1,7 @@
 const webSocket = require("ws");
 const url = require("url");
-const { UsersModel } = require("../models/users.js");
+const { UsersModel, } = require("../models/users.js");
+const { MessagesModel, } = require("../models/messages.js");
 const { verifyToken } = require("../core/auth.js");
 const webSocket_PORT = process.env.webSocket_PORT;
 
@@ -44,6 +45,15 @@ server.on("connection", async (client, req) => {
             console.log(`User ${userId} is not online`);
             return;
         };
+
+        const newMessage = new MessagesModel({
+            text: message,
+            date: Date.now(),
+            from: foundUser._id,
+            to: userId,
+        });
+        newMessage.save();
+
         targetClient.client.send(`from: ${foundUser.username} ---> ${message}`);
     });
 

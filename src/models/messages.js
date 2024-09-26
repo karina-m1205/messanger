@@ -2,19 +2,19 @@ const { mongoose, Schema } = require("mongoose");
 
 const messagesSchema = new Schema({
     text: String,
-    date: Date.now(),
-    fromUser: {
+    date:Date,
+    from: {
         type: Schema.Types.ObjectId,
         ref: "UsersModel",        
     },
-    toUser: {
+    to: {
         type: Schema.Types.ObjectId,
         ref:"UsersModel",
     },
 });
 
-const messagesModel = mongoose.model("messages", messagesSchema);
+const MessagesModel = mongoose.model("messages", messagesSchema);
 
 module.exports = {
-    messagesModel,
+    MessagesModel,
 };
