@@ -1,4 +1,4 @@
-const { UsersModel } = require("../core/mongodb.js");
+const { UsersModel } = require("../models/users.js");
 const { UserExists, UserNotFound, InvalidPassword, UsersFetchError } = require("../core/customError.js");
 const { generateToken } = require("../core/auth.js");
 

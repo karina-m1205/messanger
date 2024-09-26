@@ -1,6 +1,6 @@
 const webSocket = require("ws");
 const url = require("url");
-const { UsersModel } = require("../core/mongodb.js");
+const { UsersModel } = require("../models/users.js");
 const { verifyToken } = require("../core/auth.js");
 const webSocket_PORT = process.env.webSocket_PORT;
 
@@ -39,7 +39,7 @@ server.on("connection", async (client, req) => {
         const parsedMsg = JSON.parse(msg.toString());
         const { userId, message } = parsedMsg;
         const targetClient = allClientsOnLine.get(userId);
-        
+
         if (!targetClient) {
             console.log(`User ${userId} is not online`);
             return;

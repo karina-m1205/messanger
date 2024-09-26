@@ -1,4 +1,4 @@
-const { mongoose, Schema } = require("mongoose");
+const { mongoose } = require("mongoose");
 const mongoDB_URI = process.env.mongoDB_URI;
 
 const connectToDB = async () => {
@@ -6,17 +6,8 @@ const connectToDB = async () => {
     console.log("connected to DB");
 };
 
-const usersSchema = new Schema({
-    username: String,
-    password: String,
-    bio: String,
-});
-
-const UsersModel = mongoose.model("users", usersSchema);
-
 module.exports = {
     connectToDB,
-    UsersModel,
 };
 
 
