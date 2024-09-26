@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const user_API = require("./src/api/router.js");
+const user_API = require("./src/api/userRouter.js");
+const message_API = require("./src/api/messageRouter.js");
 const {connectToDB} = require("./src/core/mongodb.js");
 const webSocket = require("./src/websocket/websocket.js");
 const API_PORT = process.env.API_PORT;
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api",user_API);
+app.use("/api",message_API);
 
 app.listen(API_PORT,()=>{
     console.log(`app running on http://localhost:${API_PORT}`);

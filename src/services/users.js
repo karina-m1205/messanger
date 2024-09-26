@@ -40,7 +40,10 @@ class Users {
             };
 
             const authKey = generateToken(foundUser._id);
-            return authKey;
+            return {
+                authKey: authKey,
+                id: foundUser._id
+            };
         } catch (err) {
             throw err;
         };

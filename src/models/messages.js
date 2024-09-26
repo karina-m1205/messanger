@@ -1,15 +1,18 @@
 const { mongoose, Schema } = require("mongoose");
 
 const messagesSchema = new Schema({
-    text: String,
-    date:Date,
+    content: String,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     from: {
         type: Schema.Types.ObjectId,
-        ref: "UsersModel",        
+        ref: "users",
     },
     to: {
         type: Schema.Types.ObjectId,
-        ref:"UsersModel",
+        ref: "users",
     },
 });
 

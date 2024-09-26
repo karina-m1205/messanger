@@ -47,7 +47,7 @@ server.on("connection", async (client, req) => {
         };
 
         const newMessage = new MessagesModel({
-            text: message,
+            content: message,
             date: Date.now(),
             from: foundUser._id,
             to: userId,
