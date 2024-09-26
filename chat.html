@@ -203,21 +203,6 @@
             }
         });
 
-        // Send a message when the "Send" button is clicked
-        // sendButton.addEventListener('click', function () {
-        //     const message = messageInput.value;
-        //     const recipientId = recipientSelect.value; // This is the userId
-        //     const recipientName = recipientSelect.options[recipientSelect.selectedIndex].text; // Get the selected option's text
-
-        //     if (message && recipientId && socket.readyState === WebSocket.OPEN) {
-        //         const messageToSend = JSON.stringify({ userId: recipientId, message }); // Send userId and message
-        //         socket.send(messageToSend);  // Send message to WebSocket server
-        //         displayMessage(`You to ${recipientName}: ${message}`);  // Display the message in the chat
-        //         messageInput.value = '';  // Clear input
-        //         recipientSelect.selectedIndex = 0;  // Reset the recipient selection
-        //     }
-        // });
-
         //add
         sendButton.addEventListener('click', async function () {
             const message = messageInput.value;
